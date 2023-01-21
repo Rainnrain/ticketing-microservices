@@ -1,0 +1,6 @@
+# Project exclude paths
+/app-client-management/target/
+/app-domain-model/target/
+/project-service/target/
+/task-service/target/
+/user-service/target/
