@@ -12,8 +12,10 @@ import com.cydeo.repository.ProjectRepository;
 import com.cydeo.service.ProjectService;
 import com.cydeo.service.UserClientService;
 import com.cydeo.util.MapperUtil;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -105,6 +107,7 @@ public class ProjectServiceImpl implements ProjectService {
 //        taskService.completeByProject(projectMapper.convertToDto(project));
     }
 
+    @CircuitBreaker(name="user-service", fallbackMethod = "userServiceFallBack")
     @Override
     public List<ProjectDTO> listAllProjectDetails(String userName) throws ProjectServiceException {
 
@@ -132,6 +135,10 @@ public class ProjectServiceImpl implements ProjectService {
         throw new ProjectServiceException("user couldn't find");
     }
 
+// Fall back method for Api Circuit breaker
+    public List<ProjectDTO> userServiceFallBack(String userName, Exception e){
+        return new ArrayList<>();
+    }
 
     @Override
     public List<ProjectDTO> readAllByAssignedManager(User user) {
