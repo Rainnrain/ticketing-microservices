@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: git
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Rainnrain/ticketing-project-microservices-config.git
+          default-label: master
+          username: Rainnrain
+          password: '{cipher}'238dd76789e1a480ccb5a3b492980cb3928a0764d6713e913e1cece22098a07664366f703081f6106a0709c9c0a3d635e7e5449e0b5557a19e18db22c43f160e
+      fail-fast: true
+
+encrypt:
+  key: cydeo
+
+server:
+  port: 8888
