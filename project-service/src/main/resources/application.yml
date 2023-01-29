@@ -2,8 +2,8 @@ spring:
   sleuth:
     sampler:
       probability: 1
-    zipkin:
-      base-url: http://host.docker.internal:9411
+  zipkin:
+    base-url: http://host.docker.internal:9411
   application:
     name: project-service
   profiles:
@@ -22,6 +22,8 @@ spring:
     driver-class-name: org.postgresql.Driver
 server:
   port: 9091
+
+
 eureka:
   instance:
     status-page-url-path: ${management.context-path}/info
@@ -49,6 +51,7 @@ info:
     version: '@project.version@'
     spring-cloud-version: '@spring-cloud.version@'
     spring-boot-version: '@project.parent.version@'
+
 
 resilience4j:
   circuitbreaker:

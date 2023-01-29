@@ -1,10 +1,5 @@
 
 spring:
-  sleuth:
-    sampler:
-      probability: 1
-    zipkin:
-      base-url: http://host.docker.internal:9411
   application:
     name: gateway-service
   cloud:
@@ -32,6 +27,11 @@ spring:
             - Path=/cydeo/dev/task/**
           filters:
             - RewritePath=/cydeo/dev/task/(?<segment>.*),/$\{segment}
+  sleuth:
+    sampler:
+      probability: 1
+  zipkin:
+    base-url: http://host.docker.internal:9411
 
 server:
   port: 8762
