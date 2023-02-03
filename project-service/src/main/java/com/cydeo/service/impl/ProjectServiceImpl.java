@@ -115,6 +115,7 @@ public class ProjectServiceImpl implements ProjectService {
 
         UserDTO user = userResponseDto.getData();
 
+
         if(user != null){
             List<Project> list = projectRepository.findAllByAssignedManagerId(user.getId());
 
