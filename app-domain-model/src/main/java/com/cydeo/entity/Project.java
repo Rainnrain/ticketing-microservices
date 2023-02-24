@@ -32,7 +32,6 @@ public class Project extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private Status projectStatus;
-
     private String projectDetail;
 
 
