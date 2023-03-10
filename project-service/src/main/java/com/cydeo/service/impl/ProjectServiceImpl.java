@@ -26,7 +26,6 @@ public class ProjectServiceImpl implements ProjectService {
     private MapperUtil mapperUtil;
     private UserClientService userClientService;
 
-
     public ProjectServiceImpl(ProjectRepository projectRepository, MapperUtil mapperUtil, UserClientService userClientService) {
         this.projectRepository = projectRepository;
         this.mapperUtil = mapperUtil;
